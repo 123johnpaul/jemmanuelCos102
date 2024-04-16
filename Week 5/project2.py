@@ -41,9 +41,9 @@ department_entry = tk.Entry(root)
 department_entry.pack()
 
 #get the input that has been given by user
-department = department_entry.get()
-surname = surname_entry.get()
-firstname = firstname_entry.get()
+#department = department_entry.get()
+#surname = surname_entry.get()
+#firstname = firstname_entry.get()
 
 def welcomemessage(firstname):
     #create Tkinter window
@@ -56,9 +56,15 @@ def welcomemessage(firstname):
     label_2 = tk.Label(window, text="this are the names of employees in your department")
     label_2.pack()
 
-    for i in data.values():
-        if i[2] == department.title() and i[0] != firstname.title():
-            tk.Label(window, text=f"{i[0]} {i[1]}").pack()
+    lst = ["Names"]
+
+    for i in range(0,41):
+        department = department_entry.get()
+        if department ==  data['Department'][i]:
+            lst.append([data['First name'][i]])
+            lst.append(data['Surname'][i])
+            label_3 = tk.Label(window, text=f"{data['First name'][i]} {data['Surname'][i]}")
+            label_3.pack()
         else:
             continue
 
@@ -67,14 +73,19 @@ def welcomemessage(firstname):
 
 
 def submit():
-    check = []
-    for i in data.values():
-        if i[1] == surname.upper() and i[0] == firstname.title() and i[2] == department.title():
-            check = i
+
+    #get the input that has been given by user
+    department = department_entry.get()
+    surname = surname_entry.get()
+    firstname = firstname_entry.get()
+    check = ""
+    for i in range(0,41):
+        if firstname == data['First name'][i] and surname ==  data['Surname'][i] and department ==  data['Department'][i]:
+            check = data['First name'][i]
         else:
             continue
 
-    if check in data.values():
+    if check == firstname:
         welcomemessage(firstname)
     else:
         messagebox.showerror("Login", "Invalid credentials!")
