@@ -1,0 +1,30 @@
+1. Import necessary libraries (Tkinter, PIL)
+2. Define the GUI window and its properties (title, size, etc.)
+
+3. Define the function to calculate the total cost and display a message box with the bill details:
+   Function confirmation():
+      Initialize total_cost to 0
+      For each selected item:
+         Calculate the cost based on the item and quantity
+         Add the calculated cost to the total_cost
+      Determine the discount based on the total_cost
+      Display the bill details using a message box
+
+4. Define the function to get user inputs and launch confirmation:
+   Function conditions():
+      Create a new GUI window
+      Prompt user to input their name
+      For each selected item:
+         Prompt user to input the quantity
+      Display a button to confirm the order and link it to the confirmation function
+
+5. Define the function to display the menu and get user selections:
+   Function check():
+      Create a new GUI window
+      Define dropdown menus for each food category (rice/pasta, soup, etc.)
+      Display a button to confirm selections and link it to the conditions function
+
+6. Create the main GUI window:
+   Define buttons and text fields to interact with the menu
+   Link the button to the check function
+   Launch the main event loop
